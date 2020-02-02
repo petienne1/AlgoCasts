@@ -14,12 +14,20 @@ function fib(n) {
     // push sum of two previous numbers into array
   // return array[n]
 
-  let fibonacci = [0,1];
+// ITERATIVE SOLUTION
+  // let fibonacci = [0,1];
+  //
+  // for(let i = 2; i <= n; i++) {
+  //   fibonacci.push(fibonacci[i-2] + fibonacci[i-1]);
+  // }
+  // return fibonacci[n];
 
-  for(let i = 2; i <= n; i++) {
-    fibonacci.push(fibonacci[i-2] + fibonacci[i-1]);
+// RECURSIVE SOLTUION
+  if(n < 2) {
+    return n;
   }
-  return fibonacci[n];
+
+  return fib(n-2) + fib(n-1);
 }
 
 module.exports = fib;
