@@ -9,33 +9,33 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-  if(stringA.length !== stringB.length) {
-    return false;
+  function cleanStr(str) {
+    return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
   }
-
-  let objA = {
-
-  };
-
-  let objB = {
-
-  };
-
-  for (let i = 0; i < stringA.length; i++) {
-    if(objA[stringA[i]] === undefined) {
-      objA[stringA[i]] = 1;
-    } else {
-      objA[stringA[i]]++;
-    }
-  }
-  for (let i = 0; i < stringB.length; i++) {
-    if(objB[stringB[i]] === undefined) {
-      objB[stringB[i]] = 1;
-    } else {
-      objB[stringB[i]]++;
-    }
-  }
-  return objA === objB;
+  return cleanStr(stringA) === cleanStr(stringB);
 }
-
 module.exports = anagrams;
+
+// function anagrams(stringA, stringB) {
+//   const firstString = stringA.replace(/[^\w]/g, '');
+//   const secondString = stringB.replace(/[^\w]/g, '');
+//
+//   if(firstString.length !== secondString.length) {
+//     return false;
+//   }
+//
+//   let lookup = {};
+//
+//   for (let i = 0; i < firstString.length; i++) {
+//     if(lookup[firstString[i]] === undefined) {
+//       lookup[firstString[i]] = 1;
+//     } else {
+//       lookup[firstString[i]]++;
+//     }
+//   }
+//   for (let i = 0; i < secondString.length; i++) {
+//     lookup[secondString[i]] ? secondString[i]-- : false;
+//   }
+//   return true;
+// }
+// module.exports = anagrams;
